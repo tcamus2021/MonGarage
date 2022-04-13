@@ -8,5 +8,9 @@ namespace MonGarage.Models.BLL
 {
     interface MarqueManager
     {
+        List<Marque> GetAll();
+        Marque GetById(string id);
+        void Insert(Marque marque);
+        void Update(Marque marque);
     }
 }
