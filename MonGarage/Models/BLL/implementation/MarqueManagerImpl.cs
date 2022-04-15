@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Web;
+using System.Web.Http;
 
 namespace MonGarage.Models.BLL.implementation
 {
@@ -21,8 +23,14 @@ namespace MonGarage.Models.BLL.implementation
 
         public void Insert(Marque marque)
         {
-            db.Marques.Add(marque);
-            db.SaveChanges();
+            try
+            {
+                db.Marques.Add(marque);
+                db.SaveChanges();
+            } catch
+            {
+                throw new HttpResponseException(HttpStatusCode.BadRequest);
+            }
         }
 
         public void Update(Marque marque)

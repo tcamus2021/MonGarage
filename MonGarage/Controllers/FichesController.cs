@@ -3,14 +3,13 @@ using MonGarage.Models.BLL;
 using MonGarage.Models.BLL.implementation;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using System.Net.Http;
 using System.Web.Http;
+using System.Web.Http.Cors;
 using System.Web.Http.Results;
 
 namespace MonGarage.Controllers
 {
+    [EnableCors(origins: "http://localhost:3000", headers: "*", methods: "*")]
     public class FichesController : ApiController
     {
         FicheManager fm = new FicheManagerImpl();
@@ -36,6 +35,7 @@ namespace MonGarage.Controllers
             fm.Update(fiche);
         }
 
+        [HttpPost]
         public void Delete(int id)
         {
             fm.Delete(id);

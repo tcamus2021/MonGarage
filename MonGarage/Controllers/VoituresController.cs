@@ -34,6 +34,7 @@ namespace MonGarage.Controllers
             vm.Update(voiture);
         }
 
+        [System.Web.Http.HttpPost]
         public void Delete(int id)
         {
             vm.Delete(id);

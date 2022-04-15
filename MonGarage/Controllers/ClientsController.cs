@@ -35,6 +35,7 @@ namespace MonGarage.Controllers
             cm.Update(client);
         }
 
+        [HttpPost]
         public void Delete(int id)
         {
             cm.Delete(id);
